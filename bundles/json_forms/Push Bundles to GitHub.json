@@ -1,0 +1,369 @@
+{
+  "id": "606b39aecd3a32009690c1b6",
+  "created": "2021-03-08T18:35:50.577Z",
+  "createdBy": "admin@pronghorn",
+  "lastUpdated": "2023-01-26T21:27:00.453Z",
+  "lastUpdatedBy": "admin@pronghorn",
+  "name": "Push Bundles to GitHub",
+  "description": "",
+  "struct": {
+    "nodeId": "9251ce6e-db72-4080-b3f1-86b340ba1add",
+    "type": "array",
+    "items": [
+      {
+        "nodeId": "505987cd-d6fc-4302-a2d0-0b6d68eec044",
+        "type": "object",
+        "description": "",
+        "items": [
+          {
+            "nodeId": "12d9395e-cbed-44f7-af87-c392edfd7eb1",
+            "type": "string",
+            "title": "GitHub Adapter Name",
+            "description": "Select an adapter",
+            "placeholder": "Select an item",
+            "required": true,
+            "enum": [],
+            "binding": true,
+            "rel": "collection",
+            "targetPointer": "/enum",
+            "base": "/health",
+            "href": "/adapters?equalsField=package_id&equals=@itentialopensource/adapter-GitHub",
+            "method": "GET",
+            "sourcePointer": "/results",
+            "sourceKeyPointer": "/id"
+          },
+          {
+            "nodeId": "caf191bb-2851-44b0-92f1-9aa83413566c",
+            "type": "string",
+            "title": "GitHub Repository Name",
+            "description": "Project name for the GitHub repository.",
+            "placeholder": "Enter text",
+            "required": true
+          },
+          {
+            "nodeId": "4ddcbb53-e512-4ef1-9753-108d416ca3c4",
+            "type": "boolean",
+            "title": "Make Repo Private",
+            "description": "Check the box if the repository is to be made private",
+            "default": false,
+            "enum": [
+              {
+                "id": "f9d83a86-9a44-4ee5-882d-6e5f72082363",
+                "value": true
+              },
+              {
+                "id": "2539d65f-6c6d-4527-9f0f-1fa5f084822a",
+                "value": false
+              }
+            ]
+          },
+          {
+            "nodeId": "e26ab28d-a71a-4d5c-819c-ab5263f38716",
+            "type": "string",
+            "title": "GitHub Organization Name",
+            "description": "",
+            "placeholder": "Enter text",
+            "required": true,
+            "readOnly": false,
+            "binding": false,
+            "rel": "item",
+            "targetPointer": "/default"
+          },
+          {
+            "nodeId": "fd106739-664a-4d51-a48b-74598d17c545",
+            "type": "boolean",
+            "title": "Re-Discover Artifact",
+            "description": "Please check this box in case you've added or removed any IAP component (child workflow/form/template/etc.)",
+            "default": false,
+            "enum": [
+              {
+                "id": "bec790e9-1ce4-497a-a3c9-9bcbb6d44e75",
+                "value": true
+              },
+              {
+                "id": "5e3ec6ca-675e-4393-a5a7-d2d65bf355ab",
+                "value": false
+              }
+            ]
+          },
+          {
+            "nodeId": "ca5a34e8-8989-403a-800d-b17f713a49b5",
+            "type": "string",
+            "title": "Artifact",
+            "description": "Desired artifact to upload to GitHub",
+            "placeholder": "Select an Artifact",
+            "required": true,
+            "enum": [],
+            "binding": true,
+            "rel": "collection",
+            "targetPointer": "/enum",
+            "base": "/prebuilts",
+            "href": "/ ",
+            "method": "GET",
+            "sourcePointer": "/results",
+            "sourceKeyPointer": "/name",
+            "originalHref": "/:id"
+          },
+          {
+            "nodeId": "76f14d91-05ba-41a2-aa14-c6bfbb07e7a3",
+            "type": "object",
+            "description": "",
+            "items": [
+              {
+                "nodeId": "293a11d4-b9fd-4bb1-82e3-021bec9c9743",
+                "type": "string",
+                "title": "Pull Request Type",
+                "description": "Type of pull request (patch/minor/major)",
+                "placeholder": "Enter text",
+                "required": true,
+                "enum": [
+                  {
+                    "id": "3f87d31f-6465-4701-b0d3-7aa3b2e32f30",
+                    "value": "patch"
+                  },
+                  {
+                    "id": "74ea8535-8cdd-44fe-bfae-8b28717e86f1",
+                    "value": "minor"
+                  },
+                  {
+                    "id": "572e2ebe-8b19-43c3-9c55-8cf1fc723347",
+                    "value": "major"
+                  }
+                ],
+                "binding": false,
+                "rel": "collection",
+                "targetPointer": "/enum"
+              },
+              {
+                "nodeId": "36d63b0b-bb1a-4f31-87ee-5e23bac03ae1",
+                "type": "string",
+                "title": "Commit Message",
+                "description": "The message to put in with the commit",
+                "placeholder": "Enter text",
+                "required": true
+              },
+              {
+                "nodeId": "cb55002f-3061-4bf0-a8f2-eaac5ebf8adb",
+                "type": "string",
+                "title": "Target Branch",
+                "description": "The branch desired for merging into the pull request",
+                "placeholder": "Enter text",
+                "required": true
+              }
+            ],
+            "title": "For Existing GitHub Projects"
+          }
+        ],
+        "title": "Check In Artifact"
+      }
+    ]
+  },
+  "schema": {
+    "title": "Push Bundles to GitHub",
+    "description": "",
+    "type": "object",
+    "required": [],
+    "properties": {
+      "checkInArtifact": {
+        "type": "object",
+        "title": "Check In Artifact",
+        "description": "",
+        "required": [
+          "gitHubAdapterName",
+          "gitHubRepositoryName",
+          "gitHubOrganizationName",
+          "artifact"
+        ],
+        "properties": {
+          "gitHubAdapterName": {
+            "type": "string",
+            "title": "GitHub Adapter Name",
+            "_id": "/properties/checkInArtifact/properties/gitHubAdapterName",
+            "description": "Select an adapter",
+            "enum": []
+          },
+          "gitHubRepositoryName": {
+            "type": "string",
+            "title": "GitHub Repository Name",
+            "_id": "/properties/checkInArtifact/properties/gitHubRepositoryName",
+            "description": "Project name for the GitHub repository."
+          },
+          "makeRepoPrivate": {
+            "type": "boolean",
+            "title": "Make Repo Private",
+            "_id": "/properties/checkInArtifact/properties/makeRepoPrivate",
+            "description": "Check the box if the repository is to be made private",
+            "default": false,
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "gitHubOrganizationName": {
+            "type": "string",
+            "title": "GitHub Organization Name",
+            "_id": "/properties/checkInArtifact/properties/gitHubOrganizationName",
+            "description": ""
+          },
+          "reDiscoverArtifact": {
+            "type": "boolean",
+            "title": "Re-Discover Artifact",
+            "_id": "/properties/checkInArtifact/properties/reDiscoverArtifact",
+            "description": "Please check this box in case you've added or removed any IAP component (child workflow/form/template/etc.)",
+            "default": false,
+            "enum": [
+              true,
+              false
+            ]
+          },
+          "artifact": {
+            "type": "string",
+            "title": "Artifact",
+            "_id": "/properties/checkInArtifact/properties/artifact",
+            "description": "Desired artifact to upload to GitHub",
+            "enum": []
+          },
+          "forExistingGitHubProjects": {
+            "type": "object",
+            "title": "For Existing GitHub Projects",
+            "description": "",
+            "required": [
+              "pullRequestType",
+              "commitMessage",
+              "targetBranch"
+            ],
+            "properties": {
+              "pullRequestType": {
+                "type": "string",
+                "title": "Pull Request Type",
+                "_id": "/properties/checkInArtifact/properties/forExistingGitHubProjects/properties/pullRequestType",
+                "description": "Type of pull request (patch/minor/major)",
+                "enum": [
+                  "patch",
+                  "minor",
+                  "major"
+                ]
+              },
+              "commitMessage": {
+                "type": "string",
+                "title": "Commit Message",
+                "_id": "/properties/checkInArtifact/properties/forExistingGitHubProjects/properties/commitMessage",
+                "description": "The message to put in with the commit"
+              },
+              "targetBranch": {
+                "type": "string",
+                "title": "Target Branch",
+                "_id": "/properties/checkInArtifact/properties/forExistingGitHubProjects/properties/targetBranch",
+                "description": "The branch desired for merging into the pull request"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "uiSchema": {
+    "checkInArtifact": {
+      "ui:collapseByDefault": false,
+      "gitHubAdapterName": {
+        "ui:placeholder": "Select an item"
+      },
+      "gitHubRepositoryName": {
+        "ui:placeholder": "Enter text"
+      },
+      "gitHubOrganizationName": {
+        "ui:placeholder": "Enter text"
+      },
+      "artifact": {
+        "ui:placeholder": "Select an Artifact"
+      },
+      "forExistingGitHubProjects": {
+        "ui:collapseByDefault": false,
+        "pullRequestType": {
+          "ui:placeholder": "Enter text"
+        },
+        "commitMessage": {
+          "ui:placeholder": "Enter text"
+        },
+        "targetBranch": {
+          "ui:placeholder": "Enter text"
+        }
+      }
+    }
+  },
+  "bindingSchema": {
+    "properties": {
+      "checkInArtifact": {
+        "properties": {
+          "gitHubAdapterName": {
+            "binding:method": "GET",
+            "binding:link": {
+              "$ref": "/links",
+              "rel": "collection"
+            },
+            "binding:target": {
+              "propertyPointer": "/enum"
+            },
+            "binding:hyperSchema": {
+              "type": "object",
+              "base": "/health",
+              "links": [
+                {
+                  "rel": "collection",
+                  "href": "/adapters?equalsField=package_id&equals=@itentialopensource/adapter-GitHub",
+                  "targetMediaType": "application/json",
+                  "targetSchema": {
+                    "$ref": "#"
+                  },
+                  "variables": []
+                }
+              ]
+            },
+            "binding:source": {
+              "propertyPointer": "/results",
+              "keyPointer": "/id"
+            }
+          },
+          "artifact": {
+            "binding:method": "GET",
+            "binding:link": {
+              "$ref": "/links",
+              "rel": "collection"
+            },
+            "binding:target": {
+              "propertyPointer": "/enum"
+            },
+            "binding:hyperSchema": {
+              "type": "object",
+              "base": "/prebuilts",
+              "links": [
+                {
+                  "rel": "collection",
+                  "href": "/ ",
+                  "targetMediaType": "application/json",
+                  "targetSchema": {
+                    "$ref": "#"
+                  },
+                  "variables": []
+                }
+              ]
+            },
+            "binding:source": {
+              "propertyPointer": "/results",
+              "keyPointer": "/name"
+            }
+          },
+          "forExistingGitHubProjects": {
+            "properties": {}
+          }
+        }
+      }
+    }
+  },
+  "validationSchema": {
+    "checkInArtifact": {
+      "forExistingGitHubProjects": {}
+    }
+  },
+  "version": "2020.1"
+}
