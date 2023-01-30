@@ -1,0 +1,51 @@
+{
+  "_id": "6258678dfd83e12010c14e81",
+  "name": "Push Bundle to GitHub",
+  "description": "",
+  "componentName": "Push Bundles to GitHub",
+  "componentType": "workflows",
+  "gbac": {
+    "write": [],
+    "read": []
+  },
+  "created": "2023-01-26T21:27:00.482Z",
+  "createdBy": "admin@pronghorn",
+  "lastUpdated": "2023-01-26T21:27:00.482Z",
+  "lastUpdatedBy": "admin@pronghorn",
+  "triggers": [
+    {
+      "_id": "63d2f0248ec082020addd45c",
+      "created": "2023-01-26T21:27:00.766Z",
+      "createdBy": "admin@pronghorn",
+      "lastUpdated": "2023-01-26T21:27:00.766Z",
+      "lastUpdatedBy": "admin@pronghorn",
+      "name": "Manual Trigger (migrated from Push Bundle to GitHub)",
+      "type": "manual",
+      "enabled": true,
+      "actionType": "automations",
+      "actionId": "6258678dfd83e12010c14e81",
+      "formId": "Push Bundles to GitHub",
+      "formData": {
+        "checkInArtifact": {
+          "makeRepoPrivate": false,
+          "reDiscoverArtifact": true,
+          "forExistingGitHubProjects": {
+            "pullRequestType": "patch",
+            "commitMessage": "new jst added",
+            "targetBranch": "main"
+          },
+          "gitHubAdapterName": "gitHub",
+          "gitHubRepositoryName": "TestTwo",
+          "gitHubOrganizationName": "NickAOrg",
+          "artifact": "@itentialopensource/push-bundle-to-github"
+        },
+        "Check In Artifact": {
+          "Re-Discover Artifact": false,
+          "For Existing GitHub Projects": {}
+        }
+      },
+      "formSchemaHash": "1835ac1e96d2e22432a8c71bc2064312fbfa909860466ac87418790a1807c541",
+      "migrationVersion": 1
+    }
+  ]
+}
