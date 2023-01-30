@@ -1,0 +1,297 @@
+{
+  "_id": "606b3ceec2cf450099ae523f",
+  "name": "convertFormData",
+  "description": "",
+  "incoming": [
+    {
+      "$id": "formData",
+      "type": "object",
+      "properties": {
+        "checkInArtifact": {
+          "type": "object",
+          "properties": {
+            "makeRepoPrivate": {
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "reDiscoverArtifact": {
+              "type": "boolean",
+              "examples": [
+                true,
+                false
+              ]
+            },
+            "forExistingGitHubProjects": {
+              "type": "object",
+              "properties": {
+                "pullRequestType": {
+                  "type": "string",
+                  "examples": [
+                    "major"
+                  ]
+                },
+                "commitMessage": {
+                  "type": "string",
+                  "examples": [
+                    "Commit"
+                  ]
+                },
+                "targetBranch": {
+                  "type": "string",
+                  "examples": [
+                    "main"
+                  ]
+                }
+              },
+              "required": []
+            },
+            "gitHubAdapterName": {
+              "type": "string",
+              "examples": [
+                "GitHub"
+              ]
+            },
+            "gitHubRepositoryName": {
+              "type": "string",
+              "examples": [
+                "Environment"
+              ]
+            },
+            "gitHubOrganizationName": {
+              "type": "string",
+              "examples": [
+                "Itential"
+              ]
+            },
+            "artifact": {
+              "type": "string",
+              "examples": [
+                "@itentialopensource/artifact-wizard"
+              ]
+            }
+          },
+          "required": []
+        }
+      },
+      "required": []
+    }
+  ],
+  "outgoing": [
+    {
+      "$id": "ArtifactName",
+      "type": "string",
+      "examples": [
+        "ArtifactName"
+      ]
+    },
+    {
+      "$id": "ProjectName",
+      "type": "string",
+      "examples": [
+        "ProjectName"
+      ]
+    },
+    {
+      "$id": "rediscoverBoolean",
+      "type": "boolean",
+      "examples": [
+        true,
+        false
+      ]
+    },
+    {
+      "$id": "OrganizationName",
+      "type": "string",
+      "examples": [
+        "OrganizationName"
+      ]
+    },
+    {
+      "$id": "CommitMessage",
+      "type": "string",
+      "examples": [
+        "TargetBranch"
+      ]
+    },
+    {
+      "$id": "MRType",
+      "type": "string",
+      "examples": [
+        "MRType"
+      ]
+    },
+    {
+      "$id": "TargetBranch",
+      "type": "string",
+      "examples": [
+        "TargetBranch"
+      ]
+    },
+    {
+      "$id": "Adapter",
+      "type": "string",
+      "examples": [
+        "Adapter"
+      ]
+    },
+    {
+      "$id": "privateRepo",
+      "type": "boolean",
+      "examples": [
+        true,
+        false
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "id": 1,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/makeRepoPrivate"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "privateRepo",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 2,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/reDiscoverArtifact"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "rediscoverBoolean",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 3,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/forExistingGitHubProjects/pullRequestType"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "MRType",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 4,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/forExistingGitHubProjects/commitMessage"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "CommitMessage",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 5,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/forExistingGitHubProjects/targetBranch"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "TargetBranch",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 6,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/gitHubAdapterName"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "Adapter",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 7,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/gitHubRepositoryName"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "ProjectName",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 8,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/gitHubOrganizationName"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "OrganizationName",
+        "ptr": ""
+      }
+    },
+    {
+      "id": 9,
+      "type": "assign",
+      "from": {
+        "location": "incoming",
+        "name": "formData",
+        "ptr": "/checkInArtifact/artifact"
+      },
+      "to": {
+        "location": "outgoing",
+        "name": "ArtifactName",
+        "ptr": ""
+      }
+    }
+  ],
+  "functions": [],
+  "comments": [],
+  "view": {
+    "col": 2,
+    "row": 5
+  },
+  "created": "2023-01-26T21:27:00.086Z",
+  "createdBy": {
+    "_id": "6397596f33c9d7563d016496",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "lastUpdated": "2023-01-26T21:27:00.086Z",
+  "lastUpdatedBy": {
+    "_id": "6397596f33c9d7563d016496",
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn"
+  },
+  "version": "3.17.7-2021.1.0",
+  "tags": []
+}
