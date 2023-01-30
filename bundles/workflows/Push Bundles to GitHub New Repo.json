@@ -1,0 +1,423 @@
+{
+  "type": "automation",
+  "tasks": {
+    "3196": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.payLoad",
+          "path": [
+            "branch"
+          ],
+          "value": "$var.job.branch"
+        },
+        "outgoing": {
+          "object": "$var.job.payLoad"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>setObject</span>Key"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.4054848188050931,
+      "y": 0.715042372881356,
+      "scheduled": false
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0.15866797257590598,
+      "y": 0.2510593220338983
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 0.7002938295788442,
+      "y": 0.2510593220338983
+    },
+    "2e4d": {
+      "name": "forEach",
+      "canvasName": "forEach",
+      "summary": "For Each Loop",
+      "description": "Iterate over each item in an array",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "data_array": "$var.job.artifact_array"
+        },
+        "outgoing": {
+          "current_item": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>for</span><span class='highlight-string'>Each</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>For</span> <span class='highlight-string'>Each</span> Loop"
+        },
+        {
+          "key": "description",
+          "highlightString": "Iterate over <span class='highlight-string'>each</span> item in an array"
+        }
+      ],
+      "groups": [],
+      "x": 0.41332027424094026,
+      "y": 0.2531779661016949,
+      "scheduled": false
+    },
+    "3a1c": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "payLoad",
+          "value": {
+            "message": "IAP Commit",
+            "content": "aGpmZGM=",
+            "branch": "branch"
+          }
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>new</span><span class='highlight-string'>Variable</span>"
+        },
+        {
+          "key": "description",
+          "highlightString": "Create a <span class='highlight-string'>new</span> Job <span class='highlight-string'>variable</span> by Job ID and assign it a value."
+        },
+        {
+          "key": "summary",
+          "highlightString": "Create a Job <span class='highlight-string'>Variable</span>"
+        }
+      ],
+      "groups": [],
+      "x": 0.41136141038197843,
+      "y": 0.3919491525423729
+    },
+    "d4b5": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "JSON Transformation",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "605a0b9299ae1b00eb7c74e9",
+          "variableMap": {
+            "inputObject": "$var.2e4d.current_item"
+          },
+          "options": {
+            "extractOutput": false
+          }
+        },
+        "outgoing": {
+          "action": null,
+          "filePath": null,
+          "content": null
+        }
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "description",
+          "highlightString": "Perform a JSON Transformation using the <span class='highlight-string'>JST</span> library."
+        }
+      ],
+      "groups": [],
+      "x": 0.4103819784524976,
+      "y": 0.4819915254237288,
+      "task_name": "convertObjecttoString"
+    },
+    "e95f": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.payLoad",
+          "path": [
+            "content"
+          ],
+          "value": "$var.d4b5.content"
+        },
+        "outgoing": {
+          "object": "$var.job.payLoad"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>setObject</span>Key"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.40744368266405484,
+      "y": 0.590042372881356,
+      "scheduled": false
+    },
+    "1b02": {
+      "name": "putReposOwnerRepoContentsPath",
+      "canvasName": "putReposOwnerRepoContentsPath",
+      "summary": "Create a file.",
+      "description": "Create a file.",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "pathParam": "$var.d4b5.filePath",
+          "body": "$var.job.payLoad",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>putReposOwnerRepoContentsPath</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.40940254652301666,
+      "y": 0.847457627118644,
+      "scheduled": false
+    }
+  },
+  "transitions": {
+    "3196": {
+      "1b02": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "2e4d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "2e4d": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      },
+      "3a1c": {
+        "type": "standard",
+        "state": "loop"
+      }
+    },
+    "3a1c": {
+      "d4b5": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d4b5": {
+      "e95f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e95f": {
+      "3196": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "1b02": {}
+  },
+  "font_size": 12,
+  "name": "Push Bundles to GitHub New Repo",
+  "description": "",
+  "last_updated": "2023-01-26T21:26:59.822Z",
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "lastUpdatedVersion": "3.61.22-2021.2.100.0",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "branch": {
+        "title": "value",
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "object",
+          "array",
+          "boolean"
+        ],
+        "examples": [
+          {
+            "third": "last"
+          }
+        ]
+      },
+      "artifact_array": {
+        "type": "array"
+      },
+      "owner": {
+        "title": "owner",
+        "type": "string"
+      },
+      "repo": {
+        "title": "repo",
+        "type": "string"
+      },
+      "adapter_id": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "branch",
+      "artifact_array",
+      "owner",
+      "repo",
+      "adapter_id"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "branch": {
+        "title": "value",
+        "type": [
+          "string",
+          "number",
+          "integer",
+          "object",
+          "array",
+          "boolean"
+        ],
+        "examples": [
+          {
+            "third": "last"
+          }
+        ]
+      },
+      "artifact_array": {
+        "type": "array"
+      },
+      "owner": {
+        "title": "owner",
+        "type": "string"
+      },
+      "repo": {
+        "title": "repo",
+        "type": "string"
+      },
+      "adapter_id": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "payLoad": {
+        "title": "object",
+        "type": "object",
+        "properties": {},
+        "examples": [
+          {
+            "first": {
+              "second": {
+                "third": "last"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "created": "2021-03-23T18:03:42.468Z",
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "createdVersion": "5.29.14-2020.2.13",
+  "canvasVersion": 1,
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 1
+}
