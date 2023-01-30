@@ -1,0 +1,1048 @@
+{
+  "type": "automation",
+  "tasks": {
+    "788": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.MRPayload",
+          "path": [
+            "title"
+          ],
+          "value": "$var.e222.combinedStrings"
+        },
+        "outgoing": {
+          "object": "$var.job.MRPayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span><span class='highlight-string'>Object</span>Key"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> <span class='highlight-string'>Object</span> Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an <span class='highlight-string'>object</span> key"
+        },
+        {
+          "key": "displayName",
+          "highlightString": "<span class='highlight-string'>Object</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.9860655737704918,
+      "y": 0.6430084745762712,
+      "scheduled": false
+    },
+    "2759": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object ref",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.branchPayload",
+          "path": [
+            "ref"
+          ],
+          "value": "$var.bcde.combinedStrings"
+        },
+        "outgoing": {
+          "object": "$var.job.branchPayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span><span class='highlight-string'>Object</span>Key"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> <span class='highlight-string'>Object</span> Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an <span class='highlight-string'>object</span> key"
+        },
+        {
+          "key": "displayName",
+          "highlightString": "<span class='highlight-string'>Object</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6934426229508197,
+      "y": 0.6377118644067796,
+      "scheduled": false
+    },
+    "7687": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object sha",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.branchPayload",
+          "path": [
+            "sha"
+          ],
+          "value": "$var.bfe3.return_data"
+        },
+        "outgoing": {
+          "object": "$var.job.branchPayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span><span class='highlight-string'>Object</span>Key"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> <span class='highlight-string'>Object</span> Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an <span class='highlight-string'>object</span> key"
+        },
+        {
+          "key": "displayName",
+          "highlightString": "<span class='highlight-string'>Object</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6936936936936937,
+      "y": 0.5180084745762712,
+      "scheduled": false
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0,
+      "y": 0.5
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 1.29672131147541,
+      "y": 0.5
+    },
+    "7a0e": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "branchPayload",
+          "value": {
+            "ref": "refs/heads/release",
+            "sha": "14e47145895828a38eb8d37dba75004c02652a69"
+          }
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>new</span>Variable"
+        },
+        {
+          "key": "description",
+          "highlightString": "Create a <span class='highlight-string'>new</span> Job variable by Job ID and assign it a value."
+        }
+      ],
+      "groups": [],
+      "x": 0.10974610974610975,
+      "y": 0.4279661016949153
+    },
+    "aec2": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "MRPayload",
+          "value": {
+            "title": "PullRequest",
+            "head": "Dummy",
+            "base": "Dummy"
+          }
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>new</span>Variable"
+        },
+        {
+          "key": "description",
+          "highlightString": "Create a <span class='highlight-string'>new</span> Job variable by Job ID and assign it a value."
+        }
+      ],
+      "groups": [],
+      "x": 0.10401310401310401,
+      "y": 0.590042372881356
+    },
+    "a545": {
+      "name": "getReposOwnerRepoBranchesBranch",
+      "canvasName": "getReposOwnerRepoBranchesBranch",
+      "summary": "Get Branch",
+      "description": "Get Branch",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "branch": "$var.job.Targetbranch",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>getReposOwnerRepoBranchesBranch</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.2800982800982801,
+      "y": 0.5169491525423728,
+      "scheduled": false
+    },
+    "bfe3": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "get Branch sha",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response. commit.sha",
+          "obj": "$var.a545.result"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 0.4103194103194103,
+      "y": 0.5116525423728814,
+      "scheduled": false
+    },
+    "c5d2": {
+      "name": "getTime",
+      "canvasName": "getTime",
+      "summary": "Get time",
+      "description": "Gets the current time with an optional offset, timezone shift, and format string",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Time",
+      "variables": {
+        "incoming": {
+          "timezone": "-05:00",
+          "offsetDuration": "",
+          "format": "YYYY-MM-DDTHH-mm-ss"
+        },
+        "outgoing": {
+          "time": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>getTime</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.4905814905814906,
+      "y": 0.513771186440678,
+      "scheduled": false
+    },
+    "f40e": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Branch Part1",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "_",
+          "stringN": "$var.e747.return_data"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>concat</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates strings together."
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates a string with a second string(s). The second parameter can be a string or array."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.5831285831285832,
+      "y": 0.6324152542372882,
+      "scheduled": false
+    },
+    "e747": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "get Time value",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "time",
+          "obj": "$var.c5d2.time"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 0.5733005733005733,
+      "y": 0.5042372881355932,
+      "scheduled": false
+    },
+    "bcde": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Branch Part3",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "refs/heads/",
+          "stringN": "$var.e610.combinedStrings"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>concat</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates strings together."
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates a string with a second string(s). The second parameter can be a string or array."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6936936936936937,
+      "y": 0.7669491525423728,
+      "scheduled": false
+    },
+    "e610": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Branch Part2",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "$var.job.MRType",
+          "stringN": "$var.f40e.combinedStrings"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>concat</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates strings together."
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates a string with a second string(s). The second parameter can be a string or array."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.5855855855855856,
+      "y": 0.7690677966101694,
+      "scheduled": false
+    },
+    "107d": {
+      "name": "postReposOwnerRepoGitRefs",
+      "canvasName": "postReposOwnerRepoGitRefs",
+      "summary": "Create a Reference",
+      "description": "Create a Reference",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "body": "$var.job.branchPayload",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>postReposOwnerRepoGitRefs</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.8312858312858313,
+      "y": 0.5169491525423728,
+      "scheduled": false
+    },
+    "5bd7": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.MRPayload",
+          "path": [
+            "head"
+          ],
+          "value": "$var.e610.combinedStrings"
+        },
+        "outgoing": {
+          "object": "$var.job.MRPayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span><span class='highlight-string'>Object</span>Key"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> <span class='highlight-string'>Object</span> Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an <span class='highlight-string'>object</span> key"
+        },
+        {
+          "key": "displayName",
+          "highlightString": "<span class='highlight-string'>Object</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.8304668304668305,
+      "y": 0.638771186440678,
+      "scheduled": false
+    },
+    "c3cd": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.MRPayload",
+          "path": [
+            "base"
+          ],
+          "value": "$var.job.Targetbranch"
+        },
+        "outgoing": {
+          "object": "$var.job.MRPayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span><span class='highlight-string'>Object</span>Key"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> <span class='highlight-string'>Object</span> Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an <span class='highlight-string'>object</span> key"
+        },
+        {
+          "key": "displayName",
+          "highlightString": "<span class='highlight-string'>Object</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.8296478296478297,
+      "y": 0.7648305084745762,
+      "scheduled": false
+    },
+    "201f": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Run Child Job",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Push Bundle to GitHub Purge Branch",
+          "variables": {
+            "owner": {
+              "variable": "",
+              "task": "job",
+              "value": "owner"
+            },
+            "repo": {
+              "variable": "",
+              "task": "job",
+              "value": "repo"
+            },
+            "pathParam": {
+              "variable": "",
+              "task": "static",
+              "value": "bundles"
+            },
+            "branch": {
+              "variable": "",
+              "task": "e610",
+              "value": "combinedStrings"
+            },
+            "adapter_id": {
+              "variable": "",
+              "task": "job",
+              "value": "adapter_id"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>child</span>Job"
+        },
+        {
+          "key": "summary",
+          "highlightString": "Run <span class='highlight-string'>Child</span> Job"
+        },
+        {
+          "key": "description",
+          "highlightString": "Runs a <span class='highlight-string'>child</span> job inside a workflow."
+        }
+      ],
+      "groups": [],
+      "actor": "job",
+      "x": 0.9926289926289926,
+      "y": 0.5127118644067796
+    },
+    "e222": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Pull Request title",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "pullRequest",
+          "stringN": "$var.e747.return_data"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>concat</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates strings together."
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates a string with a second string(s). The second parameter can be a string or array."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.9983606557377049,
+      "y": 0.7669491525423728,
+      "scheduled": false
+    },
+    "c76b": {
+      "name": "postReposOwnerRepoPulls",
+      "canvasName": "postReposOwnerRepoPulls",
+      "summary": "Create a pull request.",
+      "description": "Create a pull request.",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "body": "$var.job.MRPayload",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>post</span>ReposOwnerRepo<span class='highlight-string'>Pull</span>s"
+        },
+        {
+          "key": "summary",
+          "highlightString": "Create a <span class='highlight-string'>pull</span> request."
+        },
+        {
+          "key": "description",
+          "highlightString": "Create a <span class='highlight-string'>pull</span> request."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.1704918032786886,
+      "y": 0.5042372881355932,
+      "scheduled": false
+    }
+  },
+  "transitions": {
+    "788": {
+      "201f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "2759": {
+      "7687": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "7687": {
+      "107d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "7a0e": {
+        "type": "standard",
+        "state": "success"
+      },
+      "aec2": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "7a0e": {
+      "a545": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "aec2": {
+      "a545": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "a545": {
+      "bfe3": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "bfe3": {
+      "c5d2": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "c5d2": {
+      "e747": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "f40e": {
+      "e610": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e747": {
+      "f40e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "bcde": {
+      "2759": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e610": {
+      "bcde": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "107d": {
+      "5bd7": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5bd7": {
+      "c3cd": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "c3cd": {
+      "e222": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "201f": {
+      "c76b": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e222": {
+      "788": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "c76b": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "font_size": 12,
+  "name": "Push Bundles to GitHub Create Branch",
+  "description": "",
+  "last_updated": "2023-01-26T21:26:59.816Z",
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "lastUpdatedVersion": "3.61.22-2021.2.100.0",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "title": "owner",
+        "type": "string"
+      },
+      "repo": {
+        "title": "repo",
+        "type": "string"
+      },
+      "Targetbranch": {
+        "title": "branch",
+        "type": "string"
+      },
+      "adapter_id": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "MRType": {
+        "title": "str",
+        "type": "string",
+        "examples": [
+          "Hello"
+        ]
+      }
+    },
+    "required": [
+      "owner",
+      "repo",
+      "Targetbranch",
+      "adapter_id",
+      "MRType"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "title": "owner",
+        "type": "string"
+      },
+      "repo": {
+        "title": "repo",
+        "type": "string"
+      },
+      "Targetbranch": {
+        "title": "branch",
+        "type": "string"
+      },
+      "adapter_id": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "MRType": {
+        "title": "str",
+        "type": "string",
+        "examples": [
+          "Hello"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "MRPayload": {
+        "title": "object",
+        "type": "object",
+        "properties": {},
+        "examples": [
+          {
+            "first": {
+              "second": {
+                "third": "last"
+              }
+            }
+          }
+        ]
+      },
+      "branchPayload": {
+        "title": "object",
+        "type": "object",
+        "properties": {},
+        "examples": [
+          {
+            "first": {
+              "second": {
+                "third": "last"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "created": "2021-03-23T19:34:48.427Z",
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "createdVersion": "5.29.14-2020.2.13",
+  "canvasVersion": 1,
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 1
+}
