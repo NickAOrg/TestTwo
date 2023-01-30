@@ -1,0 +1,2326 @@
+{
+  "type": "automation",
+  "tasks": {
+    "400": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Run Child Job",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Push Bundles to GitHub Re-Discover",
+          "variables": {
+            "internalURL": {
+              "editable": true,
+              "task": "e138",
+              "value": "combinedStrings"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 0.7510237510237511,
+      "y": 0.4989406779661017
+    },
+    "749": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "packageJson",
+          "value": {
+            "name": "",
+            "author": "Itential Automation Platform",
+            "version": "0.0.0",
+            "description": "Checked in new artifact",
+            "scripts": {
+              "test": "echo \"Error: no test specified\" && exit 1",
+              "deploy": "echo not needed npm publish --access=public --registry=http://registry.npmjs.org",
+              "validateSchema": "node test/manifestTester.js manifest.json manifest-schema.json",
+              "validateSchemaLinks": "node test/manifestLinkTester.js manifest.json",
+              "generateImageLinks": "node utils/generateImageLinks.js"
+            },
+            "repository": {
+              "type": "local",
+              "hostname": "localhost",
+              "path": "/"
+            },
+            "keywords": [
+              "Itential",
+              "IAP",
+              "artifacts"
+            ],
+            "license": "Apache-2.0",
+            "devDependencies": {
+              "r2": "^2.0.1",
+              "ajv": "6.10.0",
+              "better-ajv-errors": "^0.6.1",
+              "fs-extra": "^7.0.1"
+            }
+          }
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.2817362817362818,
+      "y": 0.5
+    },
+    "964": {
+      "name": "gatherInternalGET",
+      "canvasName": "gatherInternalGET",
+      "summary": "Gather List of Installed Artifacts",
+      "description": "Gather GET call",
+      "location": "Application",
+      "app": "AppArtifacts",
+      "displayName": "AppArtifacts",
+      "type": "manual",
+      "variables": {
+        "incoming": {
+          "internalURL": "/prebuilts?skip=0&limit=2000"
+        },
+        "outgoing": {
+          "responseBody": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "view": "/app_artifacts/views/tasks/gatherInternalGET",
+      "deprecated": false,
+      "groups": [],
+      "x": 0.21324161650902837,
+      "y": 0.7863354037267081,
+      "scheduled": false
+    },
+    "1110": {
+      "name": "gatherInternalGET",
+      "canvasName": "gatherInternalGET",
+      "summary": "Gather Selected Artifact Info",
+      "description": "Gather GET call",
+      "location": "Application",
+      "app": "AppArtifacts",
+      "displayName": "AppArtifacts",
+      "type": "manual",
+      "variables": {
+        "incoming": {
+          "internalURL": "$var.e138.combinedStrings"
+        },
+        "outgoing": {
+          "responseBody": null
+        },
+        "error": ""
+      },
+      "view": "/app_artifacts/views/tasks/gatherInternalGET",
+      "deprecated": false,
+      "groups": [],
+      "x": 0.9844389844389845,
+      "y": 0.503177966101695,
+      "scheduled": false
+    },
+    "2279": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object actionyml key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": {
+            "action": "create",
+            "file_path": ".github/workflows/action.yml",
+            "content": ""
+          },
+          "path": [
+            "content"
+          ],
+          "value": "$var.e6c0.output"
+        },
+        "outgoing": {
+          "object": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.7278688524590164,
+      "y": 1.007415254237288,
+      "scheduled": false
+    },
+    "3353": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Create new Branch",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Push Bundles to GitHub Create Branch",
+          "variables": {
+            "owner": {
+              "variable": "",
+              "task": "8b12",
+              "value": "OrganizationName"
+            },
+            "repo": {
+              "variable": "",
+              "task": "8b12",
+              "value": "ProjectName"
+            },
+            "Targetbranch": {
+              "variable": "",
+              "task": "8b12",
+              "value": "TargetBranch"
+            },
+            "adapter_id": {
+              "variable": "",
+              "task": "8b12",
+              "value": "Adapter"
+            },
+            "MRType": {
+              "variable": "",
+              "task": "8b12",
+              "value": "MRType"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 2.3237704918032787,
+      "y": 0.510593220338983
+    },
+    "5046": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "URL Part1",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "https://github.com/",
+          "stringN": "$var.8b12.OrganizationName"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.5918032786885246,
+      "y": 0.8305084745762712,
+      "scheduled": false
+    },
+    "5153": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Run Evaluation Task",
+      "description": "Run an evaluation",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "repo",
+                  "operand_1": {
+                    "variable": "job_details",
+                    "task": "ac6c"
+                  },
+                  "operator": "==",
+                  "operand_2": {
+                    "variable": true,
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 2.5295081967213116,
+      "y": 0.736228813559322
+    },
+    "5949": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Run Child Job for Update",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Push Bundles to GitHub Commit Data",
+          "variables": {
+            "artifact": {
+              "variable": "",
+              "task": "553e",
+              "value": "fixedArray"
+            },
+            "action": {
+              "variable": "",
+              "task": "static",
+              "value": "update"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 1.6375690607734807,
+      "y": 0.4676354029062087
+    },
+    "6296": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Run Evaluation Task",
+      "description": "Run an evaluation",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "",
+                  "operand_1": {
+                    "variable": "rediscoverBoolean",
+                    "task": "8b12"
+                  },
+                  "operator": "==",
+                  "operand_2": {
+                    "variable": true,
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.7762295081967213,
+      "y": 0.5985169491525424
+    },
+    "7451": {
+      "name": "arrayPush",
+      "canvasName": "push",
+      "summary": "Add commit sh",
+      "description": "Adds one element to the end of an array and returns the (newly modified) array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Array",
+      "variables": {
+        "incoming": {
+          "arr": "$var.9829.combinedArray",
+          "elementN": "$var.9c50.object"
+        },
+        "outgoing": {
+          "pushedArray": "$var.job.pushedArray"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.9631147540983607,
+      "y": 0.7108050847457628,
+      "scheduled": false
+    },
+    "7643": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Query Data Using 'json-query' Format",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "username",
+          "obj": "$var.6ccd.responseBody"
+        },
+        "outgoing": {
+          "return_data": "$var.job.artifactIdArr"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.2295786758383491,
+      "y": 0.5093167701863354,
+      "scheduled": false
+    },
+    "9829": {
+      "name": "arrayConcat",
+      "canvasName": "concat",
+      "summary": "Data Array",
+      "description": "Used to merge two arrays",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Array",
+      "variables": {
+        "incoming": {
+          "arr": "$var.146c.return_data",
+          "arrayN": "$var.61f3.return_data"
+        },
+        "outgoing": {
+          "combinedArray": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.8640458640458641,
+      "y": 0.711864406779661,
+      "scheduled": false
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0.09716251074806535,
+      "y": 0.9043478260869565
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 2.7049180327868854,
+      "y": 0.7065677966101694
+    },
+    "6ccd": {
+      "name": "gatherInternalGET",
+      "canvasName": "gatherInternalGET",
+      "summary": "Gather WhoAmI",
+      "description": "Gather GET call",
+      "location": "Application",
+      "app": "AppArtifacts",
+      "displayName": "AppArtifacts",
+      "type": "manual",
+      "variables": {
+        "incoming": {
+          "internalURL": "/whoami"
+        },
+        "outgoing": {
+          "responseBody": null
+        },
+        "error": ""
+      },
+      "view": "/app_artifacts/views/tasks/gatherInternalGET",
+      "deprecated": false,
+      "groups": [],
+      "x": 0.2244196044711952,
+      "y": 0.6385093167701863,
+      "scheduled": false
+    },
+    "82f9": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "RepoName",
+          "value": {
+            "name": "name",
+            "private": true
+          }
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.3129836629406707,
+      "y": 0.5018633540372671
+    },
+    "3ec9": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Repo Name",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.RepoName",
+          "path": [
+            "name"
+          ],
+          "value": "$var.8b12.ProjectName"
+        },
+        "outgoing": {
+          "object": "$var.job.RepoName"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.44282029234737746,
+      "y": 0.4968944099378882,
+      "scheduled": false
+    },
+    "80f2": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Get Artifact Array",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "results",
+          "obj": "$var.964.responseBody"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.6147893379191746,
+      "y": 0.5838509316770186,
+      "scheduled": false
+    },
+    "94bd": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "GetArtifactid",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "_id",
+          "obj": "$var.99a5.firstFilteredElement"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.5921375921375921,
+      "y": 0.7277542372881356,
+      "scheduled": false
+    },
+    "99a5": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "JSON Transformation",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "605a4deae4eaf000ec76deb0",
+          "variableMap": {
+            "filterableArray": "$var.80f2.return_data",
+            "keyToFilterOn": "name",
+            "valueToFind": "$var.8b12.ArtifactName",
+            "discardMatching": false
+          },
+          "options": {
+            "extractOutput": false,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "filteredArray": null,
+          "firstFilteredElement": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.5896805896805897,
+      "y": 0.6588983050847458,
+      "task_name": "CompliancefilterArrayOfObjectsGitHub",
+      "retrySettings": null
+    },
+    "e138": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Make Artifact URI",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "/prebuilts/",
+          "stringN": "$var.94bd.return_data"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.7819672131147541,
+      "y": 0.690677966101695,
+      "scheduled": false
+    },
+    "5bf": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "JSON Transformation",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "60492fa1bf365c00ecacb399",
+          "variableMap": {
+            "artifactDataUnformatted": "$var.1110.responseBody",
+            "componentObject": "$var.9aef.output"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": false,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "artifactDataFormatted": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.1687141687141687,
+      "y": 0.7213983050847458,
+      "task_name": "getMetadataAndComponentsGitHub",
+      "retrySettings": null
+    },
+    "9aef": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "componentsObject",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "620ea276e3638a010009b10e",
+          "variableMap": {
+            "input": "$var.1110.responseBody"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": false,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "output": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.1613431613431613,
+      "y": 0.6228813559322034,
+      "task_name": "componentsObjectGitHub",
+      "retrySettings": null
+    },
+    "20e2": {
+      "name": "createPublishedArtifactFromScratch",
+      "canvasName": "createPublishedArtifactFromScratch",
+      "summary": "Creates artifact for publishing without DB calls",
+      "description": "Creates JSON object containing artifact file structure and all associated data from input tasks without touching database",
+      "location": "Application",
+      "locationType": null,
+      "app": "AppArtifacts",
+      "type": "automatic",
+      "displayName": "AppArtifacts",
+      "variables": {
+        "incoming": {
+          "artifactData": "$var.5bf.artifactDataFormatted",
+          "modules": "$var.job.healthcheck",
+          "packageJson": "$var.job.packageJson"
+        },
+        "outgoing": {
+          "callback": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.3243243243243243,
+      "y": 0.722457627118644,
+      "scheduled": false
+    },
+    "ab12": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Get Update Files",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "update",
+          "obj": "$var.20e2.callback"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.3707182320441988,
+      "y": 0.5918097754293263,
+      "scheduled": false
+    },
+    "8c8f": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Get Create Files",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "create",
+          "obj": "$var.20e2.callback"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.47010647010647,
+      "y": 0.6345338983050848,
+      "scheduled": false
+    },
+    "99e1": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Run Child Job for Create",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Push Bundles to GitHub Commit Data",
+          "variables": {
+            "artifact": {
+              "variable": "",
+              "task": "8c8f",
+              "value": "return_data"
+            },
+            "action": {
+              "variable": "",
+              "task": "static",
+              "value": "create"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 1.638121546961326,
+      "y": 0.6036988110964333
+    },
+    "146c": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "update Array",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "commitActions",
+          "obj": "$var.5949.job_details"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.778688524590164,
+      "y": 0.5211864406779662,
+      "scheduled": false
+    },
+    "61f3": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "create Array",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "commitActions",
+          "obj": "$var.99e1.job_details"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.7567567567567568,
+      "y": 0.6175847457627118,
+      "scheduled": false
+    },
+    "fb6e": {
+      "name": "postOrgsOrgRepos",
+      "canvasName": "postOrgsOrgRepos",
+      "summary": "Create a new repository for the authenticated user. OAuth users must supply\nrepo scope.",
+      "description": "Create a new repository for the authenticated user. OAuth users must supply\nrepo scope.",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "org": "$var.8b12.OrganizationName",
+          "body": "$var.job.RepoName",
+          "adapter_id": "$var.8b12.Adapter"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 2.4040983606557376,
+      "y": 0.926906779661017,
+      "scheduled": false
+    },
+    "c6cd": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Create new Repo",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Push Bundles to GitHub New Repo",
+          "variables": {
+            "branch": {
+              "variable": "",
+              "task": "static",
+              "value": "main"
+            },
+            "artifact_array": {
+              "variable": "",
+              "task": "job",
+              "value": "pushedArray"
+            },
+            "owner": {
+              "variable": "",
+              "task": "8b12",
+              "value": "OrganizationName"
+            },
+            "repo": {
+              "variable": "",
+              "task": "8b12",
+              "value": "ProjectName"
+            },
+            "adapter_id": {
+              "variable": "",
+              "task": "8b12",
+              "value": "Adapter"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 2.704098360655738,
+      "y": 0.9216101694915254
+    },
+    "fb27": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "get new Branch name",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "MRPayload.head",
+          "obj": "$var.3353.job_details"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 2.4885245901639346,
+      "y": 0.5116525423728814,
+      "scheduled": false
+    },
+    "6a7d": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Run Child Job",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Push Bundles to GitHub New Repo",
+          "variables": {
+            "branch": {
+              "variable": "",
+              "task": "fb27",
+              "value": "return_data"
+            },
+            "artifact_array": {
+              "variable": "",
+              "task": "job",
+              "value": "pushedArray"
+            },
+            "owner": {
+              "variable": "",
+              "task": "8b12",
+              "value": "OrganizationName"
+            },
+            "repo": {
+              "variable": "",
+              "task": "8b12",
+              "value": "ProjectName"
+            },
+            "adapter_id": {
+              "variable": "",
+              "task": "8b12",
+              "value": "Adapter"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 2.6262295081967215,
+      "y": 0.5211864406779662
+    },
+    "3d98": {
+      "name": "arrayPush",
+      "canvasName": "push",
+      "summary": "Add generate file",
+      "description": "Adds one element to the end of an array and returns the (newly modified) array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Array",
+      "variables": {
+        "incoming": {
+          "arr": "$var.job.pushedArray",
+          "elementN": "$var.e81.object"
+        },
+        "outgoing": {
+          "pushedArray": "$var.job.pushedArray"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 2.069672131147541,
+      "y": 0.7097457627118644,
+      "scheduled": false
+    },
+    "e6c0": {
+      "name": "makeData",
+      "canvasName": "makeData",
+      "summary": "Get Action yml",
+      "description": "This task takes an input and converts it to a different data type. For example, converting a number into a string.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "input": "# This is a basic workflow to help you get started with Actions\n\nname: CI\n\n# Controls when the action will run. \non:\n  # Triggers the workflow on push or pull request events but only for the main branch\n  push:\n\n  # Allows you to run this workflow manually from the Actions tab\n  workflow_dispatch:\n\n# A workflow run is made up of one or more jobs that can run sequentially or in parallel\njobs:\n  # This workflow contains a single job called \"build\"\n  build:\n    # The type of runner that the job will run on\n    runs-on: ubuntu-latest\n    if: \"!contains(github.event.head_commit.message, 'Skip CI')\"\n    # Steps represent a sequence of tasks that will be executed as part of the job\n    steps:\n      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it\n      - uses: actions/checkout@v2\n      - name: Generate Artifact.json file\n        run: chmod +x ./scripts/commit.sh && ./scripts/commit.sh",
+          "outputType": "string",
+          "variables": ""
+        },
+        "outgoing": {
+          "output": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.5827868852459017,
+      "y": 1.0095338983050848,
+      "scheduled": false
+    },
+    "3fbf": {
+      "name": "arrayPush",
+      "canvasName": "push",
+      "summary": "Add Action to Array",
+      "description": "Adds one element to the end of an array and returns the (newly modified) array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Array",
+      "variables": {
+        "incoming": {
+          "arr": "$var.job.pushedArray",
+          "elementN": "$var.2279.object"
+        },
+        "outgoing": {
+          "pushedArray": "$var.job.pushedArray"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 2.1844262295081966,
+      "y": 0.711864406779661,
+      "scheduled": false
+    },
+    "9ec4": {
+      "name": "makeData",
+      "canvasName": "makeData",
+      "summary": "get generatedata",
+      "description": "This task takes an input and converts it to a different data type. For example, converting a number into a string.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Tools",
+      "variables": {
+        "incoming": {
+          "input": "const path = require(\"path\");\nconst fs = require(\"fs\");\n\nconst files = [\"package.json\", \"manifest.json\", \"README.md\"];\nlet success = true;\n\nconst PID = process.argv[2];\nconst gitHubURL = process.argv[3];\nconst gitHubBranch = process.argv[4];\nif (PID === null || PID == undefined || Number.isNaN(parseInt(PID, 10))) {\n  console.error(\n    \"Please run this script with GitHub Project ID (integer) as an argument\"\n  );\n  process.exit(2);\n}\nconsole.log(`Generating artifact.json file w/ ${PID} as GitHub Project ID`);\n\nconst filePath = __dirname.replace(\"/scripts\", \"\");\ntry {\n  const [packageJSON, manifest, readme] = files.map((entry) => {\n    const result = fs.readFileSync(path.join(filePath, `./${entry}`), {\n      encoding: \"utf-8\",\n    });\n\n    if (entry !== \"README.md\") {\n      const parsedRes = JSON.parse(result);\n      if (\n        entry === \"manifest.json\" &&\n        Object.prototype.hasOwnProperty.call(parsedRes, \"version\")\n      ) {\n        delete parsedRes.version;\n      }\n      return parsedRes;\n    } else {\n      return result.replace(/\\.\\//gm, `${gitHubURL}/-/raw/${gitHubBranch}/`);\n    }\n  });\n    const bundles = [];\n  const components = manifest.artifacts;\n  components.forEach((file) => {\n    try {\n      const data = fs.readFileSync(path.join(filePath, `${file.location}`), {\n        encoding: \"utf-8\",\n      });\n      bundles.push({ type: file.type, data: JSON.parse(data) });\n      console.log(`     ⚪ (${file.type})   -   ${file.location}   -   ✅`);\n    } catch (err) {\n      success = false;\n      console.log(\n        `     ⚪  (${file.type})   -   ${file.location}   -   ❌  - ${err}`\n      );\n    }\n  });\n\n  const metadata = {\n    name: packageJSON.name,\n    version: packageJSON.version,\n    description: packageJSON.description,\n    license: packageJSON.license,\n    repository: packageJSON.repository,\n    keywords: packageJSON.keywords,\n    author: packageJSON.author,\n    IAPDependencies: packageJSON.IAPDependencies,\n  };\n\n  if (success) {\n    console.log(`\\n\\nFinished successfully`);\n  } else {\n    console.log(`\\n\\nFinished with error(s)`);\n    process.exit(1);\n  }\n  const artifact = { metadata, manifest, bundles, readme };\n  fs.writeFileSync(\n    path.join(filePath, \"./artifact.json\"),\n    JSON.stringify(artifact, null, 2)\n  );\n} catch (err) {\n  console.error(`Failed to generate artifact.json file: ${err}`);\n  process.exit(1);\n}\n",
+          "outputType": "string",
+          "variables": ""
+        },
+        "outgoing": {
+          "output": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.521311475409836,
+      "y": 0.7415254237288136,
+      "scheduled": false
+    },
+    "e81": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object generate key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": {
+            "action": "create",
+            "file_path": "scripts/generate.js",
+            "content": ""
+          },
+          "path": [
+            "content"
+          ],
+          "value": "$var.9ec4.output"
+        },
+        "outgoing": {
+          "object": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.7065573770491804,
+      "y": 0.746822033898305,
+      "scheduled": false
+    },
+    "bd21": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Get Package Name Json",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "metadata.name",
+          "obj": "$var.5bf.artifactDataFormatted"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.2360655737704918,
+      "y": 0.6451271186440678,
+      "scheduled": false
+    },
+    "e7ff": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Url part 2",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "/",
+          "stringN": "$var.8b12.ProjectName"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6811475409836065,
+      "y": 0.8305084745762712,
+      "scheduled": false
+    },
+    "adf4": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Url Par 3",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "$var.5046.combinedStrings",
+          "stringN": "$var.e7ff.combinedStrings"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.7795081967213114,
+      "y": 0.826271186440678,
+      "scheduled": false
+    },
+    "9c50": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object commit sh",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": {
+            "action": "create",
+            "file_path": "scripts/commit.sh",
+            "content": ""
+          },
+          "path": [
+            "content"
+          ],
+          "value": "git checkout \"${GITHUB_REF:11}\"\ngit reset --hard origin/\"${GITHUB_REF:11}\"\ncd scripts\nGENERATE=`node generate $GITHUB_RUN_ID $GITHUB_REPOSITORY $GITHUB_REF`\ncd ..\ngit add artifact.json\ngit diff --cached --name-only | if grep artifact.json\nthen\n    echo \"A new generated artifact.json file has been checked in to current branch\"\n    git config --global user.name '$GITHUB_ACTOR'\n    git config --global user.email 'github-action@users.noreply.github.com'\n    git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY\n    git add artifact.json\n    git commit -am \"Automated artifact json generation report [Skip CI]\"\n    git push\nelse\n    echo \"artifact.json file hasn't changed\"\nfi"
+        },
+        "outgoing": {
+          "object": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.6491803278688524,
+      "y": 0.8877118644067796,
+      "scheduled": false
+    },
+    "8b12": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "JSON Transformation",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "606b3ceec2cf450099ae523f",
+          "variableMap": {
+            "formData": "$var.job.formData"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "ArtifactName": null,
+          "ProjectName": null,
+          "rediscoverBoolean": null,
+          "OrganizationName": null,
+          "CommitMessage": null,
+          "MRType": null,
+          "TargetBranch": null,
+          "Adapter": null,
+          "privateRepo": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 0.20808254514187446,
+      "y": 0.9031055900621118,
+      "task_name": "convertFormData"
+    },
+    "870c": {
+      "name": "evaluation",
+      "canvasName": "evaluation",
+      "summary": "Run Evaluation Task",
+      "description": "Run an evaluation",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "all_true_flag": false,
+          "evaluation_groups": [
+            {
+              "all_true_flag": false,
+              "evaluations": [
+                {
+                  "query": "failed",
+                  "operand_1": {
+                    "variable": "job_details",
+                    "task": "ac6c"
+                  },
+                  "operator": "==",
+                  "operand_2": {
+                    "variable": false,
+                    "task": "static"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "outgoing": {
+          "return_value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 2.525409836065574,
+      "y": 0.6366525423728814
+    },
+    "ac6c": {
+      "name": "childJob",
+      "canvasName": "childJob",
+      "summary": "Run Child Job",
+      "description": "Runs a child job inside a workflow.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "task": "",
+          "workflow": "Push Bundles to GitHub Check OrgRepo",
+          "variables": {
+            "org": {
+              "variable": "",
+              "task": "8b12",
+              "value": "OrganizationName"
+            },
+            "adapter_id": {
+              "variable": "",
+              "task": "8b12",
+              "value": "Adapter"
+            },
+            "repoName": {
+              "variable": "",
+              "task": "8b12",
+              "value": "ProjectName"
+            }
+          },
+          "data_array": "",
+          "transformation": "",
+          "loopType": ""
+        },
+        "outgoing": {
+          "job_details": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "job",
+      "x": 2.3408839779005524,
+      "y": 0.7014531043593131
+    },
+    "808d": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Repo Visibility",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.RepoName",
+          "path": [
+            "private"
+          ],
+          "value": "$var.8b12.privateRepo"
+        },
+        "outgoing": {
+          "object": "$var.job.RepoName"
+        },
+        "error": "",
+        "decorators": []
+      },
+      "deprecated": false,
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.5795356835769562,
+      "y": 0.4894409937888199,
+      "scheduled": false
+    },
+    "553e": {
+      "name": "transformation",
+      "canvasName": "transformation",
+      "summary": "updatePackageGitHubJSON",
+      "description": "Perform a JSON Transformation using the JST library.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "tr_id": "605d2b11d1976e009291a74d",
+          "variableMap": {
+            "filesArray": "$var.ab12.return_data",
+            "packageJsonName": "$var.bd21.return_data",
+            "packageJsonVersion": "0.0.1"
+          },
+          "options": {
+            "extractOutput": true,
+            "validateIncoming": true,
+            "revertToDefaultValue": true
+          }
+        },
+        "outgoing": {
+          "fixedArray": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.4714400643604184,
+      "y": 0.4874551971326165,
+      "task_name": "updatePackageGitHubJSON",
+      "retrySettings": null
+    },
+    "4b6e": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "healthcheck",
+          "value": [
+            {
+              "package_id": "@itential/app-automation_catalog",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-ag_manager",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-admin_essentials",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-golden_services",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-form_builder",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-artifacts",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-automation_studio",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-json_forms",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-configuration_manager",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-golden_config",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/adapter-local_aaa",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-mop",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-nso_manager",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-policy_manager",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-service_management",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/search",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-service_catalog",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-smart_template",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-task_worker",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-template_builder",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/tags",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/adapter-mongo",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/adapter-redis",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-workflow_engine",
+              "version": ""
+            },
+            {
+              "package_id": "@itential/app-workflow_builder",
+              "version": ""
+            }
+          ]
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "groups": [],
+      "x": 1.1568785197103781,
+      "y": 0.4850657108721625
+    }
+  },
+  "transitions": {
+    "400": {
+      "1110": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "749": {
+      "20e2": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "964": {
+      "6ccd": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "1110": {
+      "4b6e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "2279": {
+      "9829": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "3353": {
+      "fb27": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5046": {
+      "e7ff": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5153": {
+      "3353": {
+        "type": "standard",
+        "state": "success"
+      },
+      "fb6e": {
+        "type": "standard",
+        "state": "failure"
+      }
+    },
+    "5949": {
+      "146c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6296": {
+      "400": {
+        "type": "standard",
+        "state": "success"
+      },
+      "1110": {
+        "type": "standard",
+        "state": "failure"
+      }
+    },
+    "7451": {
+      "3d98": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "7643": {
+      "82f9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "9829": {
+      "7451": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "8b12": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "6ccd": {
+      "7643": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "82f9": {
+      "3ec9": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "3ec9": {
+      "808d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "80f2": {
+      "99a5": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "94bd": {
+      "5046": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "99a5": {
+      "94bd": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e138": {
+      "6296": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "5bf": {
+      "bd21": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "9aef": {
+      "5bf": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "20e2": {
+      "8c8f": {
+        "type": "standard",
+        "state": "success"
+      },
+      "ab12": {
+        "type": "standard",
+        "state": "success"
+      },
+      "9ec4": {
+        "type": "standard",
+        "state": "success"
+      },
+      "e6c0": {
+        "type": "standard",
+        "state": "success"
+      },
+      "9c50": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "ab12": {
+      "553e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8c8f": {
+      "99e1": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "99e1": {
+      "61f3": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "72a1": {},
+    "146c": {
+      "9829": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "61f3": {
+      "9829": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "fb6e": {
+      "c6cd": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "c6cd": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "fb27": {
+      "6a7d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "6a7d": {
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "3d98": {
+      "3fbf": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e6c0": {
+      "2279": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "b67f": {},
+    "3fbf": {
+      "ac6c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "9ec4": {
+      "e81": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e81": {
+      "9829": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "bd21": {
+      "749": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "e7ff": {
+      "adf4": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "adf4": {
+      "e138": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "feed": {},
+    "9c50": {
+      "9829": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8c95": {},
+    "8b12": {
+      "964": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "870c": {
+      "5153": {
+        "type": "standard",
+        "state": "success"
+      },
+      "workflow_end": {
+        "type": "standard",
+        "state": "failure"
+      }
+    },
+    "ac6c": {
+      "870c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "808d": {
+      "80f2": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "553e": {
+      "5949": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "4b6e": {
+      "9aef": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "font_size": 12,
+  "name": "Push Bundles to GitHub",
+  "description": "",
+  "last_updated": "2023-01-26T21:26:59.800Z",
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "lastUpdatedVersion": "3.61.22-2021.2.100.0",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "formData": {
+        "$id": "formData",
+        "type": "object",
+        "properties": {
+          "checkInArtifact": {
+            "type": "object",
+            "properties": {
+              "makeRepoPrivate": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "reDiscoverArtifact": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "forExistingGitHubProjects": {
+                "type": "object",
+                "properties": {
+                  "pullRequestType": {
+                    "type": "string",
+                    "examples": [
+                      "major"
+                    ]
+                  },
+                  "commitMessage": {
+                    "type": "string",
+                    "examples": [
+                      "Commit"
+                    ]
+                  },
+                  "targetBranch": {
+                    "type": "string",
+                    "examples": [
+                      "main"
+                    ]
+                  }
+                },
+                "required": []
+              },
+              "gitHubAdapterName": {
+                "type": "string",
+                "examples": [
+                  "GitHub"
+                ]
+              },
+              "gitHubRepositoryName": {
+                "type": "string",
+                "examples": [
+                  "Environment"
+                ]
+              },
+              "gitHubOrganizationName": {
+                "type": "string",
+                "examples": [
+                  "Itential"
+                ]
+              },
+              "artifact": {
+                "type": "string",
+                "examples": [
+                  "@itentialopensource/artifact-wizard"
+                ]
+              }
+            },
+            "required": []
+          }
+        },
+        "required": []
+      }
+    },
+    "required": [
+      "formData"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "formData": {
+        "$id": "formData",
+        "type": "object",
+        "properties": {
+          "checkInArtifact": {
+            "type": "object",
+            "properties": {
+              "makeRepoPrivate": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "reDiscoverArtifact": {
+                "type": "boolean",
+                "examples": [
+                  true,
+                  false
+                ]
+              },
+              "forExistingGitHubProjects": {
+                "type": "object",
+                "properties": {
+                  "pullRequestType": {
+                    "type": "string",
+                    "examples": [
+                      "major"
+                    ]
+                  },
+                  "commitMessage": {
+                    "type": "string",
+                    "examples": [
+                      "Commit"
+                    ]
+                  },
+                  "targetBranch": {
+                    "type": "string",
+                    "examples": [
+                      "main"
+                    ]
+                  }
+                },
+                "required": []
+              },
+              "gitHubAdapterName": {
+                "type": "string",
+                "examples": [
+                  "GitHub"
+                ]
+              },
+              "gitHubRepositoryName": {
+                "type": "string",
+                "examples": [
+                  "Environment"
+                ]
+              },
+              "gitHubOrganizationName": {
+                "type": "string",
+                "examples": [
+                  "Itential"
+                ]
+              },
+              "artifact": {
+                "type": "string",
+                "examples": [
+                  "@itentialopensource/artifact-wizard"
+                ]
+              }
+            },
+            "required": []
+          }
+        },
+        "required": []
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "packageJson": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "scripts": {
+            "type": "object",
+            "properties": {
+              "test": {
+                "type": "string"
+              },
+              "deploy": {
+                "type": "string"
+              },
+              "validateSchema": {
+                "type": "string"
+              },
+              "validateSchemaLinks": {
+                "type": "string"
+              },
+              "generateImageLinks": {
+                "type": "string"
+              }
+            }
+          },
+          "repository": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "hostname": {
+                "type": "string"
+              },
+              "path": {
+                "type": "string"
+              }
+            }
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "license": {
+            "type": "string"
+          },
+          "devDependencies": {
+            "type": "object",
+            "properties": {
+              "r2": {
+                "type": "string"
+              },
+              "ajv": {
+                "type": "string"
+              },
+              "better-ajv-errors": {
+                "type": "string"
+              },
+              "fs-extra": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "pushedArray": {
+        "title": "pushedArray",
+        "type": "array",
+        "items": [
+          {
+            "type": [
+              "string",
+              "number",
+              "integer",
+              "object",
+              "array",
+              "boolean",
+              "null"
+            ]
+          }
+        ],
+        "examples": [
+          [
+            "Device1",
+            "Device2",
+            "Device3"
+          ]
+        ]
+      },
+      "artifactIdArr": {
+        "title": "return_data",
+        "type": [
+          "string",
+          "number",
+          "object",
+          "integer",
+          "array",
+          "boolean",
+          "null"
+        ],
+        "examples": [
+          "value"
+        ]
+      },
+      "RepoName": {
+        "title": "object",
+        "type": "object",
+        "properties": {},
+        "examples": [
+          {
+            "first": {
+              "second": {
+                "third": "last"
+              }
+            }
+          }
+        ]
+      },
+      "healthcheck": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "package_id": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  },
+  "created": "2021-03-23T20:50:23.930Z",
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "createdVersion": "5.29.14-2020.2.17",
+  "canvasVersion": 1,
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 1
+}
