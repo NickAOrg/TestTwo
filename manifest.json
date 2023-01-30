@@ -1,0 +1,197 @@
+{
+  "bundleName": "@itentialopensource/push-bundle-to-github",
+  "version": "0.0.1",
+  "fingerprint": "63d7f8f28ea90401767dc0a8",
+  "createdEpoch": "1675098354026",
+  "artifacts": [
+    {
+      "id": "Push Bundle to GitHub",
+      "name": "Push Bundle to GitHub",
+      "type": "automation",
+      "location": "/bundles/automations/Push Bundle to GitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Bundles to GitHub",
+      "name": "Push Bundles to GitHub",
+      "type": "workflow",
+      "location": "/bundles/workflows/Push Bundles to GitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Bundles to GitHub Re-Discover",
+      "name": "Push Bundles to GitHub Re-Discover",
+      "type": "workflow",
+      "location": "/bundles/workflows/Push Bundles to GitHub Re-Discover.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Bundles to GitHub Create Branch",
+      "name": "Push Bundles to GitHub Create Branch",
+      "type": "workflow",
+      "location": "/bundles/workflows/Push Bundles to GitHub Create Branch.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Bundles to GitHub Commit Data",
+      "name": "Push Bundles to GitHub Commit Data",
+      "type": "workflow",
+      "location": "/bundles/workflows/Push Bundles to GitHub Commit Data.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Bundles to GitHub New Repo",
+      "name": "Push Bundles to GitHub New Repo",
+      "type": "workflow",
+      "location": "/bundles/workflows/Push Bundles to GitHub New Repo.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Bundles to GitHub Check OrgRepo",
+      "name": "Push Bundles to GitHub Check OrgRepo",
+      "type": "workflow",
+      "location": "/bundles/workflows/Push Bundles to GitHub Check OrgRepo.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Bundle to GitHub Purge Branch",
+      "name": "Push Bundle to GitHub Purge Branch",
+      "type": "workflow",
+      "location": "/bundles/workflows/Push Bundle to GitHub Purge Branch.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Push Bundles to GitHub",
+      "name": "Push Bundles to GitHub",
+      "type": "json-forms",
+      "location": "/bundles/json_forms/Push Bundles to GitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "Re-Discovery Components Form",
+      "name": "Re-Discovery Components Form",
+      "type": "json-forms",
+      "location": "/bundles/json_forms/Re-Discovery Components Form.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "605a4deae4eaf000ec76deb0",
+      "name": "CompliancefilterArrayOfObjectsGitHub",
+      "type": "transformation",
+      "location": "/bundles/transformations/CompliancefilterArrayOfObjectsGitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "60492fa1bf365c00ecacb399",
+      "name": "getMetadataAndComponentsGitHub",
+      "type": "transformation",
+      "location": "/bundles/transformations/getMetadataAndComponentsGitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "620ea276e3638a010009b10e",
+      "name": "componentsObject",
+      "type": "transformation",
+      "location": "/bundles/transformations/componentsObject.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "605d2b11d1976e009291a74d",
+      "name": "updatePackageGitHubJSON",
+      "type": "transformation",
+      "location": "/bundles/transformations/updatePackageGitHubJSON.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "606b3ceec2cf450099ae523f",
+      "name": "convertFormData",
+      "type": "transformation",
+      "location": "/bundles/transformations/convertFormData.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "605b86f821c795008dc26118",
+      "name": "mergeFormWithDiscovery",
+      "type": "transformation",
+      "location": "/bundles/transformations/mergeFormWithDiscovery.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "6210015da161ae00ef6164b4",
+      "name": "convertArtifactInfoToForm",
+      "type": "transformation",
+      "location": "/bundles/transformations/convertArtifactInfoToForm.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "605b86d521c795008dc26117",
+      "name": "convertFormOutputToDiscoveryFormatGitHub",
+      "type": "transformation",
+      "location": "/bundles/transformations/convertFormOutputToDiscoveryFormatGitHub.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "605b870f21c795008dc26119",
+      "name": "createArtifactForPublish",
+      "type": "transformation",
+      "location": "/bundles/transformations/createArtifactForPublish.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "605a0b9299ae1b00eb7c74e9",
+      "name": "convertObjecttoString",
+      "type": "transformation",
+      "location": "/bundles/transformations/convertObjecttoString.json",
+      "properties": {
+        "entryPoint": false
+      }
+    },
+    {
+      "id": "621002baa161ae00ef6164b5",
+      "name": "translateSchemaPushBundles",
+      "type": "transformation",
+      "location": "/bundles/transformations/translateSchemaPushBundles.json",
+      "properties": {
+        "entryPoint": false
+      }
+    }
+  ]
+}
