@@ -1,0 +1,1290 @@
+{
+  "name": "Push Bundle to GitHub Purge Branch",
+  "type": "automation",
+  "tasks": {
+    "944": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object sha",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.deletepayload",
+          "path": [
+            "sha"
+          ],
+          "value": "$var.ba1d.return_data"
+        },
+        "outgoing": {
+          "object": "$var.job.deletepayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span><span class='highlight-string'>Object</span>Key"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> <span class='highlight-string'>Object</span> Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an <span class='highlight-string'>object</span> key"
+        },
+        {
+          "key": "displayName",
+          "highlightString": "<span class='highlight-string'>Object</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.2934426229508196,
+      "y": 1.2627118644067796,
+      "scheduled": false
+    },
+    "8759": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.deletepayload",
+          "path": [
+            "sha"
+          ],
+          "value": "$var.883f.return_data"
+        },
+        "outgoing": {
+          "object": "$var.job.deletepayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span><span class='highlight-string'>Object</span>Key"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> <span class='highlight-string'>Object</span> Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an <span class='highlight-string'>object</span> key"
+        },
+        {
+          "key": "displayName",
+          "highlightString": "<span class='highlight-string'>Object</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6221311475409836,
+      "y": 0.8601694915254238,
+      "scheduled": false
+    },
+    "workflow_start": {
+      "name": "workflow_start",
+      "groups": [],
+      "x": 0.040983606557377046,
+      "y": 0.4650423728813559
+    },
+    "workflow_end": {
+      "name": "workflow_end",
+      "groups": [],
+      "x": 1.1057377049180328,
+      "y": 0.4502118644067797
+    },
+    "e65c": {
+      "name": "getReposOwnerRepoContentsPath",
+      "canvasName": "getReposOwnerRepoContentsPath",
+      "summary": "Get contents.\nThis method returns the contents of a file or directory in a repository.\nFiles and symlinks support a custom media type for getting the raw content.\nDirectories and submodules do not support custom media types.\nNote: This API supports files up to 1 megabyte in size.\nHere can be many outcomes. For details see \"http://developer.github.com/v3/repos/contents/\"",
+      "description": "Get contents.\nThis method returns the contents of a file or directory in a repository.\nFiles and symlinks support a custom media type for getting the raw content.\nDirectories and submodules do not support custom media types.\nNote: This API supports files up to 1 megabyte in size.\nHere can be many outcomes. For details see \"http://developer.github.com/v3/repos/contents/\"",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "pathParam": "$var.job.pathParam",
+          "pathParamQuery": "",
+          "ref": "$var.job.branch",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>getReposOwnerRepoContentsPath</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.5737704918032787,
+      "y": 0.4597457627118644,
+      "scheduled": false
+    },
+    "62ff": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Get Bundles array",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response",
+          "obj": "$var.e65c.result"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 0.8672131147540983,
+      "y": 0.4608050847457627,
+      "scheduled": false
+    },
+    "be3f": {
+      "name": "forEach",
+      "canvasName": "forEach",
+      "summary": "For Each Loop",
+      "description": "Iterate over each item in an array",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "data_array": "$var.62ff.return_data"
+        },
+        "outgoing": {
+          "current_item": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>for</span><span class='highlight-string'>Each</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>For</span> <span class='highlight-string'>Each</span> Loop"
+        },
+        {
+          "key": "description",
+          "highlightString": "Iterate over <span class='highlight-string'>each</span> item in an array"
+        }
+      ],
+      "groups": [],
+      "x": 0.9926229508196721,
+      "y": 0.4555084745762712,
+      "scheduled": false
+    },
+    "ac7a": {
+      "name": "getReposOwnerRepoGitTreesShaCode",
+      "canvasName": "getReposOwnerRepoGitTreesShaCode",
+      "summary": "Get a Tree.",
+      "description": "Get a Tree.",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "shaCode": "$var.3d3e.return_data",
+          "recursive": "",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "getReposOwnerRepoGit<span class='highlight-string'>Tree</span>sShaCode"
+        },
+        {
+          "key": "summary",
+          "highlightString": "Get a <span class='highlight-string'>Tree</span>."
+        },
+        {
+          "key": "description",
+          "highlightString": "Get a <span class='highlight-string'>Tree</span>."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.9901639344262295,
+      "y": 0.746822033898305,
+      "scheduled": false
+    },
+    "3d3e": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Get Sha code",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "sha",
+          "obj": "$var.be3f.current_item"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 0.9811475409836066,
+      "y": 0.576271186440678,
+      "scheduled": false
+    },
+    "1c5f": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "Get Tree Array",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.tree",
+          "obj": "$var.ac7a.result"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 0.980327868852459,
+      "y": 0.8580508474576272,
+      "scheduled": false
+    },
+    "87c8": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "getFilePath",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "pathParam",
+          "obj": "$var.be3f.current_item"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 0.989344262295082,
+      "y": 0.6419491525423728,
+      "scheduled": false
+    },
+    "8bec": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Create File Path 2",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "$var.8abe.combinedStrings",
+          "stringN": "$var.4b70.return_data"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>concat</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates strings together."
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates a string with a second string(s). The second parameter can be a string or array."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.1508196721311474,
+      "y": 1.1260593220338984,
+      "scheduled": false
+    },
+    "8abe": {
+      "name": "stringConcat",
+      "canvasName": "concat",
+      "summary": "Create File Path 1",
+      "description": "Concatenates a string with a second string(s). The second parameter can be a string or array.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "String",
+      "variables": {
+        "incoming": {
+          "str": "$var.87c8.return_data",
+          "stringN": "/"
+        },
+        "outgoing": {
+          "combinedStrings": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>concat</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates strings together."
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Concat</span>enates a string with a second string(s). The second parameter can be a string or array."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.1655737704918032,
+      "y": 0.9872881355932204,
+      "scheduled": false
+    },
+    "1b1e": {
+      "name": "forEach",
+      "canvasName": "forEach",
+      "summary": "For Each Loop file",
+      "description": "Iterate over each item in an array",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "data_array": "$var.1c5f.return_data"
+        },
+        "outgoing": {
+          "current_item": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>for</span><span class='highlight-string'>Each</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>For</span> <span class='highlight-string'>Each</span> Loop"
+        },
+        {
+          "key": "description",
+          "highlightString": "Iterate over <span class='highlight-string'>each</span> item in an array"
+        }
+      ],
+      "groups": [],
+      "x": 1.1672131147540983,
+      "y": 0.8389830508474576,
+      "scheduled": false
+    },
+    "ba1d": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "getFileSha",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "sha",
+          "obj": "$var.1b1e.current_item"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 1.2877049180327869,
+      "y": 1.1260593220338984,
+      "scheduled": false
+    },
+    "4b70": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "get Name",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "path",
+          "obj": "$var.1b1e.current_item"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 1.289344262295082,
+      "y": 0.9978813559322034,
+      "scheduled": false
+    },
+    "2e6d": {
+      "name": "deleteReposOwnerRepoContentsPath",
+      "canvasName": "deleteReposOwnerRepoContentsPath",
+      "summary": "Delete a file.\nThis method deletes a file in a repository.",
+      "description": "Delete a file.\nThis method deletes a file in a repository.",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "pathParam": "$var.8bec.combinedStrings",
+          "body": "$var.job.deletepayload",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>delete</span>ReposOwnerRepoContentsPath"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Delete</span> a file.\nThis method deletes a file in a repository."
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Delete</span> a file.\nThis method deletes a file in a repository."
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.6344262295081968,
+      "y": 1.2383474576271187,
+      "scheduled": false
+    },
+    "dd00": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "deletepayload",
+          "value": {
+            "message": "Purging Files for new Commit",
+            "sha": "sha",
+            "branch": "testing"
+          }
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>new</span><span class='highlight-string'>Variable</span>"
+        },
+        {
+          "key": "description",
+          "highlightString": "Create a <span class='highlight-string'>new</span> Job <span class='highlight-string'>variable</span> by Job ID and assign it a value."
+        },
+        {
+          "key": "summary",
+          "highlightString": "Create a Job <span class='highlight-string'>Variable</span>"
+        }
+      ],
+      "groups": [],
+      "x": 1.1483606557377048,
+      "y": 1.2669491525423728
+    },
+    "c5cf": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object branch",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.deletepayload",
+          "path": [
+            "branch"
+          ],
+          "value": "$var.job.branch"
+        },
+        "outgoing": {
+          "object": "$var.job.deletepayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span>ObjectKey"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> Object Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an object key"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 1.4065573770491804,
+      "y": 1.24364406779661,
+      "scheduled": false
+    },
+    "d5de": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "Files",
+          "value": [
+            ".github/workflows/action.yml",
+            "package.json",
+            "manifest.json",
+            "README.md",
+            "LICENSE",
+            "scripts/generate.js",
+            "scripts/commit.sh",
+            "artifact.json"
+          ]
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>new</span><span class='highlight-string'>Variable</span>"
+        },
+        {
+          "key": "description",
+          "highlightString": "Create a <span class='highlight-string'>new</span> Job <span class='highlight-string'>variable</span> by Job ID and assign it a value."
+        },
+        {
+          "key": "summary",
+          "highlightString": "Create a Job <span class='highlight-string'>Variable</span>"
+        }
+      ],
+      "groups": [],
+      "x": 0.13442622950819672,
+      "y": 0.4629237288135593
+    },
+    "d09d": {
+      "name": "forEach",
+      "canvasName": "forEach",
+      "summary": "For Each Loop Files",
+      "description": "Iterate over each item in an array",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "data_array": "$var.job.Files"
+        },
+        "outgoing": {
+          "current_item": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>for</span><span class='highlight-string'>Each</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>For</span> <span class='highlight-string'>Each</span> Loop"
+        },
+        {
+          "key": "description",
+          "highlightString": "Iterate over <span class='highlight-string'>each</span> item in an array"
+        }
+      ],
+      "groups": [],
+      "x": 0.2565573770491803,
+      "y": 0.4608050847457627,
+      "scheduled": false
+    },
+    "c7a": {
+      "name": "newVariable",
+      "canvasName": "newVariable",
+      "summary": "Create a Job Variable",
+      "description": "Create a new Job variable by Job ID and assign it a value.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "name": "deletepayload",
+          "value": {
+            "message": "Purging Files for new Commit",
+            "sha": "sha",
+            "branch": "testing"
+          }
+        },
+        "outgoing": {
+          "value": null
+        }
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>new</span><span class='highlight-string'>Variable</span>"
+        },
+        {
+          "key": "description",
+          "highlightString": "Create a <span class='highlight-string'>new</span> Job <span class='highlight-string'>variable</span> by Job ID and assign it a value."
+        },
+        {
+          "key": "summary",
+          "highlightString": "Create a Job <span class='highlight-string'>Variable</span>"
+        }
+      ],
+      "groups": [],
+      "x": 0.2532786885245902,
+      "y": 0.6694915254237288
+    },
+    "d1ef": {
+      "name": "setObjectKey",
+      "canvasName": "setObjectKey",
+      "summary": "Set Object Key",
+      "description": "Set an object key",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "automatic",
+      "displayName": "Object",
+      "variables": {
+        "incoming": {
+          "obj": "$var.job.deletepayload",
+          "path": [
+            "branch"
+          ],
+          "value": "$var.job.branch"
+        },
+        "outgoing": {
+          "object": "$var.job.deletepayload"
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>set</span><span class='highlight-string'>Object</span>Key"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Set</span> <span class='highlight-string'>Object</span> Key"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Set</span> an <span class='highlight-string'>object</span> key"
+        },
+        {
+          "key": "displayName",
+          "highlightString": "<span class='highlight-string'>Object</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6163934426229508,
+      "y": 1.007415254237288,
+      "scheduled": false
+    },
+    "2dfa": {
+      "name": "getReposOwnerRepoContentsPath",
+      "canvasName": "getReposOwnerRepoContentsPath",
+      "summary": "Get contents.\nThis method returns the contents of a file or directory in a repository.\nFiles and symlinks support a custom media type for getting the raw content.\nDirectories and submodules do not support custom media types.\nNote: This API supports files up to 1 megabyte in size.\nHere can be many outcomes. For details see \"http://developer.github.com/v3/repos/contents/\"",
+      "description": "Get contents.\nThis method returns the contents of a file or directory in a repository.\nFiles and symlinks support a custom media type for getting the raw content.\nDirectories and submodules do not support custom media types.\nNote: This API supports files up to 1 megabyte in size.\nHere can be many outcomes. For details see \"http://developer.github.com/v3/repos/contents/\"",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "pathParam": "$var.d09d.current_item",
+          "pathParamQuery": "",
+          "ref": "$var.job.branch",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>getReposOwnerRepoContentsPath</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.5327868852459017,
+      "y": 0.6779661016949152,
+      "scheduled": false
+    },
+    "4c37": {
+      "name": "deleteReposOwnerRepoContentsPath",
+      "canvasName": "deleteReposOwnerRepoContentsPath",
+      "summary": "Delete a file.\nThis method deletes a file in a repository.",
+      "description": "Delete a file.\nThis method deletes a file in a repository.",
+      "location": "Adapter",
+      "locationType": "GitHub",
+      "app": "GitHub",
+      "type": "automatic",
+      "displayName": "GitHub",
+      "variables": {
+        "incoming": {
+          "owner": "$var.job.owner",
+          "repo": "$var.job.repo",
+          "pathParam": "$var.d09d.current_item",
+          "body": "$var.job.deletepayload",
+          "adapter_id": "$var.job.adapter_id"
+        },
+        "outgoing": {
+          "result": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>deleteReposOwnerRepoContentsPath</span>"
+        }
+      ],
+      "groups": [],
+      "actor": "Pronghorn",
+      "x": 0.6172131147540983,
+      "y": 1.1557203389830508,
+      "scheduled": false
+    },
+    "883f": {
+      "name": "query",
+      "canvasName": "query",
+      "summary": "get Sha",
+      "description": "Query data using a dot/bracket notation string and a matching key/value pair.",
+      "location": "Application",
+      "locationType": null,
+      "app": "WorkFlowEngine",
+      "type": "operation",
+      "displayName": "WorkFlowEngine",
+      "variables": {
+        "incoming": {
+          "pass_on_null": false,
+          "query": "response.sha",
+          "obj": "$var.2dfa.result"
+        },
+        "outgoing": {
+          "return_data": null
+        },
+        "error": ""
+      },
+      "deprecated": false,
+      "matched": [
+        {
+          "key": "canvasName",
+          "highlightString": "<span class='highlight-string'>query</span>"
+        },
+        {
+          "key": "summary",
+          "highlightString": "<span class='highlight-string'>Query</span> Data Using 'json-query' Format"
+        },
+        {
+          "key": "description",
+          "highlightString": "<span class='highlight-string'>Query</span> data using a dot/bracket notation string and a matching key/value pair."
+        }
+      ],
+      "groups": [],
+      "x": 0.5327868852459017,
+      "y": 0.8559322033898306,
+      "scheduled": false
+    }
+  },
+  "transitions": {
+    "944": {
+      "c5cf": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8759": {
+      "d1ef": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_start": {
+      "d5de": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "workflow_end": {},
+    "e65c": {
+      "62ff": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "62ff": {
+      "be3f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "be3f": {
+      "3d3e": {
+        "type": "standard",
+        "state": "loop"
+      },
+      "workflow_end": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "ac7a": {
+      "1c5f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "3d3e": {
+      "87c8": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "1c5f": {
+      "1b1e": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "87c8": {
+      "ac7a": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8bec": {
+      "ba1d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "8abe": {
+      "4b70": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "1b1e": {
+      "8abe": {
+        "type": "standard",
+        "state": "loop"
+      }
+    },
+    "ba1d": {
+      "dd00": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "4b70": {
+      "8bec": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "2e6d": {},
+    "dd00": {
+      "944": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "a0e8": {},
+    "c5cf": {
+      "2e6d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d5de": {
+      "d09d": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d09d": {
+      "c7a": {
+        "type": "standard",
+        "state": "loop"
+      },
+      "e65c": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "c7a": {
+      "2dfa": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "d1ef": {
+      "4c37": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "2dfa": {
+      "883f": {
+        "type": "standard",
+        "state": "success"
+      }
+    },
+    "4c37": {},
+    "883f": {
+      "8759": {
+        "type": "standard",
+        "state": "success"
+      }
+    }
+  },
+  "font_size": 12,
+  "last_updated": "2023-01-26T21:26:59.835Z",
+  "last_updated_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "lastUpdatedVersion": "3.61.22-2021.2.100.0",
+  "inputSchema": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "title": "owner",
+        "type": "string"
+      },
+      "repo": {
+        "title": "repo",
+        "type": "string"
+      },
+      "pathParam": {
+        "title": "pathParam",
+        "type": "string"
+      },
+      "branch": {
+        "title": "ref",
+        "type": "string"
+      },
+      "adapter_id": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      }
+    },
+    "required": [
+      "owner",
+      "repo",
+      "pathParam",
+      "branch",
+      "adapter_id"
+    ]
+  },
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "owner": {
+        "title": "owner",
+        "type": "string"
+      },
+      "repo": {
+        "title": "repo",
+        "type": "string"
+      },
+      "pathParam": {
+        "title": "pathParam",
+        "type": "string"
+      },
+      "branch": {
+        "title": "ref",
+        "type": "string"
+      },
+      "adapter_id": {
+        "type": [
+          "array",
+          "boolean",
+          "null",
+          "number",
+          "object",
+          "string"
+        ]
+      },
+      "_id": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{24}$"
+      },
+      "initiator": {
+        "type": "string"
+      },
+      "deletepayload": {
+        "title": "object",
+        "type": "object",
+        "properties": {},
+        "examples": [
+          {
+            "first": {
+              "second": {
+                "third": "last"
+              }
+            }
+          }
+        ]
+      },
+      "Files": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "created": "2021-03-23T18:52:41.283Z",
+  "created_by": {
+    "provenance": "local_aaa",
+    "username": "admin@pronghorn",
+    "firstname": "admin",
+    "inactive": false
+  },
+  "createdVersion": "5.29.14-2020.2.13",
+  "canvasVersion": 1,
+  "tags": [],
+  "groups": [],
+  "migrationVersion": 1
+}
