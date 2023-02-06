@@ -1,0 +1,85 @@
+{
+    "leaf": {
+        "commonDevicesCommandSets": [],
+        "uniqueDevicesCommands": []
+    },
+    "spine": {
+        "commonDevicesCommandSets": [],
+        "uniqueDevicesCommands": []
+    },
+    "dci": {
+        "commonDevicesCommandSets": [],
+        "uniqueDevicesCommands": []
+    },
+    "internet": {
+        "commonDevicesCommandSets": [
+            {
+                "devices": [
+                    "172.20.103.134",
+                    "172.20.103.136"
+                ],
+                "deviceType": "cisco_ios",
+                "username": "admin",
+                "port": 22,
+                "commands": [
+                    [
+                        "show interfaces",
+                        "show version"
+                    ],
+                    [
+                        "show location"
+                    ]
+                ]
+            },
+            {
+                "devices": [
+                    "172.20.103.135"
+                ],
+                "deviceType": "cisco_ios",
+                "username": "admin",
+                "port": 22,
+                "commands": [
+                    [
+                        "show interfaces",
+                        "show version"
+                    ],
+                    [
+                        "show location"
+                    ]
+                ]
+            }
+        ],
+        "uniqueDevicesCommands": [
+            {
+                "device": "172.20.103.140",
+                "deviceType": "cisco_xr",
+                "username": "admin",
+                "port": 22,
+                "commands": [
+                    [
+                        "show interfaces",
+                        "show version",
+                        "show cdp neighbors",
+                        "show clock",
+                        "show ip route",
+                        "show location"
+                    ],
+                    [
+                        "show host",
+                        "show run",
+                        "show ip route summary",
+                        "show platform"
+                    ]
+                ]
+            }
+        ]
+    },
+    "mpls": {
+        "commonDevicesCommandSets": [],
+        "uniqueDevicesCommands": []
+    },
+    "apic": {
+        "commonDevicesCommandSets": [],
+        "uniqueDevicesCommands": []
+    }
+}
